@@ -87,6 +87,8 @@ public class TelaLoginFuncionario extends JFrame {
 		txtFraseSecreta.setBounds(769, 497, 323, 20);
 		contentPaneTela.add(txtFraseSecreta);
 		txtFraseSecreta.setColumns(10);
+		
+		
 
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBounds(841, 627, 211, 44);
@@ -132,7 +134,7 @@ public class TelaLoginFuncionario extends JFrame {
 			}
 		});
 		contentPaneTela.add(btnLogin);
-
+		
 		JLabel lblNewLabel_4 = new JLabel("Boulervard");
 		lblNewLabel_4.setBounds(841, 152, 251, 46);
 		lblNewLabel_4.setForeground(new Color(0, 0, 128));
@@ -143,14 +145,30 @@ public class TelaLoginFuncionario extends JFrame {
 
 		contentPaneTela.add(lblNewLabel_4);
 
-		JLabel lblNewLabel_6 = new JLabel("New label");
-		lblNewLabel_6.setBounds(676, 209, 394, 109);
-		lblNewLabel_6.setIcon(new ImageIcon(TelaLoginFuncionario.class.getResource("/Imagens/LogoHotel.png")));
-		contentPaneTela.add(lblNewLabel_6);
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(135, 206, 235));
+		panel.setBounds(674, 93, 534, 660);
+		contentPaneTela.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setBounds(244, 5, 46, 14);
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setBounds(51, 61, 46, 14);
+		panel.add(lblNewLabel_3);
+		
+				JLabel lblNewLabel_6 = new JLabel("New label");
+				lblNewLabel_6.setBounds(0, 160, 394, 109);
+				panel.add(lblNewLabel_6);
+				lblNewLabel_6.setIcon(new ImageIcon(TelaLoginFuncionario.class.getResource("/Imagens/LogoHotel.png")));
+
 		
 		JLabel lblNewLabel = new JLabel("\r\n");
 		lblNewLabel.setIcon(new ImageIcon(TelaLoginFuncionario.class.getResource("/Imagens/TLF.png")));
 		lblNewLabel.setBounds(0, 0, 1922, 1014);
 		contentPaneTela.add(lblNewLabel);
+		
 	}
 }

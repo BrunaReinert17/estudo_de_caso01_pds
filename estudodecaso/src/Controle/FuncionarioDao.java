@@ -18,6 +18,7 @@ public static FuncionarioDao getIntancia() {
 		listaFuncionario.add(
 				new Funcionario("Bruna", 14058567937l, "bruna@gmail.com", "secretaria", "bruna18"));
 		}
+	listaFuncionario.add(new Funcionario("agatha",123456789101l,"agatha@gmail.com","gerente","agatha12"));
 
 
 	return funcionarioDao;
