@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -20,15 +21,18 @@ import Controle.EnderecoDao;
 import Controle.HospedeDao;
 import modelo.Endereco;
 import modelo.Hospede;
+import javax.swing.JComboBox;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
 
 public class CadastrarEndereco extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtCep;
-	private JTextField txtEstado;
 	private JTextField txtCidade;
 	private JTextField txtBairro;
 	private JTextField txtRua;
+	private ArrayList<String>listaEstados;
 
 	public CadastrarEndereco() {
 		setTitle("Tela Cadastro Endereço");
@@ -86,11 +90,6 @@ public class CadastrarEndereco extends JFrame {
 		contentPane.add(txtCep);
 		txtCep.setColumns(10);
 
-		txtEstado = new JTextField();
-		txtEstado.setBounds(779, 407, 39, 20);
-		contentPane.add(txtEstado);
-		txtEstado.setColumns(10);
-
 		txtCidade = new JTextField();
 		txtCidade.setBounds(779, 462, 129, 20);
 		contentPane.add(txtCidade);
@@ -113,7 +112,6 @@ public class CadastrarEndereco extends JFrame {
 				String erros = "";
 
 				String cep = txtCep.getText().replace("-", "");
-				String estado = txtEstado.getText();
 				String cidade = txtCidade.getText();
 				String bairro = txtBairro.getText();
 				String rua = txtRua.getText();
@@ -172,7 +170,6 @@ public class CadastrarEndereco extends JFrame {
 				String erros = "";
 
 				String cep = txtCep.getText().replace("-", "");
-				String estado = txtEstado.getText();
 				String cidade = txtCidade.getText();
 				String bairro = txtBairro.getText();
 				String rua = txtRua.getText();
@@ -271,14 +268,36 @@ public class CadastrarEndereco extends JFrame {
 		});
 		btnNewButton_1.setBounds(1104, 639, 170, 37);
 		contentPane.add(btnNewButton_1);
+		
+		JComboBox cbxEstados = new JComboBox();
+		cbxEstados.addAncestorListener(new AncestorListener() {
+			public void ancestorAdded(AncestorEvent event) {
+				listaEstados = new ArrayList<>();
+				listaEstados = listaEstado();
+				
+			}
+			public void ancestorMoved(AncestorEvent event) {
+			}
+			public void ancestorRemoved(AncestorEvent event) {
+			}
+		});
+		cbxEstados.setBounds(779, 403, 129, 22);
+		contentPane.add(cbxEstados);
 	}
 
 	public void limparDados() {
 		txtCep.setText("");
-		txtEstado.setText("");
 		txtCidade.setText("");
 		txtBairro.setText("");
 		txtRua.setText("");
 
+	}
+	public static ArrayList<String>listaEstado(){
+		ArrayList<String>listaEstados= new ArrayList<>();
+		listaEstados.add("SC");
+		listaEstados.add("RS");
+		listaEstados.add("PR");
+		return listaEstados;
+		
 	}
 }
